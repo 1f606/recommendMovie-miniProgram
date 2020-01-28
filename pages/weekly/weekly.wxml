@@ -1,0 +1,26 @@
+ <view class='weekly_container'>
+ 	<swiper class='movie' indicator-dots='true' current='{{ currentIndex }}' indicator-active-color="blue">
+ 		<swiper-item class='movie-item' wx:for="{{WeekMovies}}" wx:key="index">
+ 			<navigator url="../detail/detail?id={{item.id}}">
+ 				<view class="movie-item_imgCon">
+ 					<image src="{{item.images.small}}" mode="aspectFit"></image>
+ 				</view>
+ 			</navigator>
+ 			<text class="movie-item_title">{{item.title}}</text>
+ 			<view class="movie-item_directors">
+ 				<text>导演：{{item.directors[0].name}}</text>
+ 			</view>
+ 			<view class="movie-item_casts">
+ 				<text>主演：</text>
+ 				<text wx:for="{{item.casts}}" wx:key="index">{{item.name}}</text>
+ 			</view>
+ 			<view class="movie-item_desc">
+ 				<text wx:for="{{item.genres}}" wx:key="index">{{item}}</text>
+ 				<text wx:for="{{item.durations}}" wx:key="index">{{item}}</text>
+ 			</view>
+ 			<view class="movie-item_pubdates">
+ 				<text wx:for="{{item.pubdates}}" wx:key="index">{{item}}</text>
+ 			</view>
+ 		</swiper-item>
+ 	</swiper>
+ </view>
